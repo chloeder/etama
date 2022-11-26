@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/Admin/src/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/template_home/assets/images/logo/logo.svg">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Custom CSS -->
     <link href="/Admin/src/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
@@ -225,9 +225,16 @@
                                         class="svg-icon mr-2 ml-1"></i>
                                     Pengaturan Akun</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    Keluar</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();"><i
+                                        data-feather="power" class="svg-icon mr-2 ml-1"></i>
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -249,7 +256,7 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ url('/dashboard2') }}"
                                 aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="list-divider"></li>
@@ -339,19 +346,15 @@
 
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
                                 href="/templates/admin/src/html/authentication-login1.html" aria-expanded="false"><i
-                                    data-feather="lock" class="feather-icon"></i><span class="hide-menu">Masuk
+                                    data-feather="lock" class="feather-icon"></i><span class="hide-menu">User
                                 </span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
                                 href="/templates/admin/src/html/authentication-register1.html"
                                 aria-expanded="false"><i data-feather="lock" class="feather-icon"></i><span
-                                    class="hide-menu">Daftar
+                                    class="hide-menu">Role
                                 </span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
-                                href="/templates/admin/src/html/authentication-login1.html" aria-expanded="false"><i
-                                    data-feather="log-out" class="feather-icon"></i><span
-                                    class="hide-menu">Keluar</span></a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -502,8 +505,8 @@
                 <!-- *************************************************************** -->
 
                 <footer class="footer text-center text-muted">
-                    All Rights Reserved by Adminmart. Designed and Developed by <a
-                        href="https://wrappixel.com">WrapPixel</a>.
+                    All Rights Reserved by Kantor Pertanahan Kota Kotamobagu. Designed and Developed by <a 
+                        href="https://wrappixel.com">E-Tama</a>.
                 </footer>
                 <!-- ============================================================== -->
                 <!-- End footer -->
